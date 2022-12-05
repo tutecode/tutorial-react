@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Card from "../Card"
 import Mundo from "./Mundo"
 
@@ -68,9 +69,19 @@ const Hola = ({
     numero2
 }) => {
 
+    // uneState (estado inicial) = false
+    const [clicked, setClicked] = useState(false)
+
     const elemento = (e) => {
         e.preventDefault()
+        setClicked(true)
         console.log(numero1 + numero2)
+    }
+
+    console.log(clicked)
+
+    if (clicked) {
+        console.log('Clicked es Verdadero')
     }
 
     let titulo = "Hola"
