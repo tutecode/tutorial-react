@@ -5,6 +5,9 @@ function App() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(numero1 + numero2)
+    if(enabledPro){
+      console.log('Otorgar acceso Pro')
+    }
   }
 
   // Create State
@@ -12,6 +15,8 @@ function App() {
     numero1: '',
     numero2: ''
   })
+
+  const [enabledPro, setEnablePro] = useState(false)
 
   const { numero1, numero2 } = formData
 
@@ -51,6 +56,17 @@ function App() {
               />
             </div>
           </div>
+        </div>
+        <div className="max-w-lg flex rounded-md text-gray-600 font-worksans-light">
+          <input
+            type="checkbox"
+            name="pro"
+            onChange={e => setEnablePro(e.target.checked)}
+            value="1"
+            placeholder="0"
+            className="rounded-md sm:text-sm border-gray-300 mr-2"
+          />
+          Pro
         </div>
         <button className='inline-flex p-2 px-4 rounded-full bg-rose-300'>
           Submit
